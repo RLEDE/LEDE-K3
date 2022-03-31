@@ -10,17 +10,6 @@
 
 
 
-
-
-echo '移除bcm53xx中的其他机型'
-sed -i '421,453d' target/linux/bcm53xx/image/Makefile
-sed -i '140,412d' target/linux/bcm53xx/image/Makefile
-sed -i 's/$(USB3_PACKAGES) k3screenctrl/luci-app-k3screenctrl/g' target/linux/bcm53xx/image/Makefile
-# sed -n '140,146p' target/linux/bcm53xx/image/Makefile
-echo '=========Remove other devices of bcm53xx OK!========='
-
-
-
 echo '修改upnp绑定文件位置'
 sed -i 's/\/var\/upnp.leases/\/tmp\/upnp.leases/g' feeds/packages/net/miniupnpd/files/upnpd.config
 cat feeds/packages/net/miniupnpd/files/upnpd.config |grep upnp_lease_file
