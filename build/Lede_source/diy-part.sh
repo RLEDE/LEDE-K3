@@ -11,6 +11,7 @@
 
 
 
+
 # 设置首次登录后台密码为空（进入openwrt后自行修改密码）
 # sed -i '/CYXluq4wUazHjmCDBCqXF/d' $ZZZ_PATH
 
@@ -46,7 +47,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 
 sed -i 's/luci-theme-bootstrap/luci-theme-neobird/g' feeds/luci/collections/luci/Makefile 
 
-sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/neobird' && uci commit luci" "$BASE_PATH/etc/rc.local" 
+sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/Neobird' && uci commit luci" "$BASE_PATH/etc/rc.local" 
 
 sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES += phicomm_k3|' target/linux/bcm53xx/image/Makefile
 
@@ -60,6 +61,7 @@ EOF
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间
 cat >${GITHUB_WORKSPACE}/Clear <<-EOF
+rm -rf packages
 rm -rf config.buildinfo
 rm -rf feeds.buildinfo
 rm -rf sha256sums
