@@ -64,6 +64,7 @@ cat >"$CLEAR_PATH" <<-EOF
 packages
 config.buildinfo
 feeds.buildinfo
+ipk.tar.gz
 sha256sums
 version.buildinfo
 EOF
